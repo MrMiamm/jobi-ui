@@ -1,60 +1,74 @@
+// src/components/button/Button.stories.ts
+
+/**************************************************************************************/
+
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
-
 import { fn } from 'storybook/test'
-
 import Button from './Button.vue'
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
+/**************************************************************************************/
+
 const meta = {
   title: 'Example/Button',
   component: Button,
-  // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   argTypes: {
-    size: { control: 'select', options: ['small', 'medium', 'large'] },
-    backgroundColor: { control: 'color' },
+    variant: { control: 'select', options: ['primary', 'secondary', 'contrast', 'ghost'] },
+    size: { control: 'select', options: ['sm', 'md', 'xl'] },
+    iconPosition: { control: 'select', options: ['left', 'right'] },
+    width: { control: 'select', options: ['fit', 'full'] },
   },
   args: {
-    primary: false,
-    // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args
+    text: 'Button',
+    variant: 'primary',
+    size: 'md',
     onClick: fn(),
   },
 } satisfies Meta<typeof Button>
-
 export default meta
+
+/**************************************************************************************/
+
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    variant: 'primary',
+    text: 'Button',
   },
 }
 
 export const Secondary: Story = {
   args: {
-    primary: false,
-    label: 'Button',
+    variant: 'secondary',
+    text: 'Button',
+  },
+}
+
+export const Contrast: Story = {
+  args: {
+    variant: 'contrast',
+    text: 'Button',
+  },
+}
+
+export const Ghost: Story = {
+  args: {
+    variant: 'ghost',
+    text: 'Button',
   },
 }
 
 export const Large: Story = {
   args: {
-    label: 'Button',
-    size: 'large',
+    text: 'Button',
+    size: 'xl',
   },
 }
 
 export const Small: Story = {
   args: {
-    label: 'Button',
-    size: 'small',
-  },
-}
-
-export const Zd: Story = {
-  args: {
-    primary: false,
-    label: 'Button',
+    text: 'Button',
+    size: 'sm',
   },
 }
