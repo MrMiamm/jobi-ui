@@ -1,0 +1,19 @@
+{
+  "name": "jobi-ui-playground-nuxt",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "typegen": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/icon": "^2.6.1",
+    "@nuxtjs/color-mode": "^4.0.1",
+    "nuxt": "^4.6.2",
+    "nuxt-jobi-ui": "*"
+  }
+}

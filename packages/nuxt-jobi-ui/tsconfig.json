@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "types": ["node"],
+    "paths": {
+      "jobi-ui": ["../jobi-ui/src/index.ts"],
+      "jobi-ui/manifest": ["../jobi-ui/src/manifest.ts"]
+    }
+  },
+  "include": ["src/**/*"]
+}

@@ -1,34 +1,24 @@
 {
-  "name": "jobi-ui",
+  "name": "jobi-ui-monorepo",
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "workspaces": [
+    "packages/*",
+    "playgrounds/*"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "test:unit": "vitest",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --build",
+    "dev": "npm run dev:nuxt",
+    "dev:nuxt": "npm run dev -w playgrounds/nuxt",
+    "dev:vue": "npm run dev -w playgrounds/vue",
+    "typegen:nuxt": "npm run typegen -w playgrounds/nuxt",
+    "build": "npm run build --workspaces --if-present",
+    "type-check": "npm run type-check -w jobi-ui && npm run type-check -w nuxt-jobi-ui && npm run type-check -w playgrounds/vue",
+    "test:unit": "npm run test:unit -w jobi-ui",
     "lint": "run-s \"lint:*\"",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "format": "prettier --write --experimental-cli src/",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "dependencies": {
-    "vue": "^3.5.42"
-  },
-  "peerDependencies": {
-    "@iconify/vue": "^5.0.0",
-    "tailwindcss": "^4.0.0",
-    "vue": "^3.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@iconify/vue": {
-      "optional": true
-    }
+    "format": "prettier --write --experimental-cli packages/ playgrounds/"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.13",
@@ -52,18 +42,9 @@
     "tailwindcss": "^4.1.13",
     "typescript": "~6.0.0",
     "vite": "^8.2.2",
-    "vite-plugin-vue-devtools": "^8.2.1",
     "vitest": "^4.1.11",
     "vue-eslint-parser": "^10.4.1",
     "vue-tsc": "^3.3.11",
-    "storybook": "^10.6.3",
-    "@storybook/vue3-vite": "^10.6.3",
-    "@chromatic-com/storybook": "latest",
-    "@storybook/addon-vitest": "^10.6.3",
-    "@storybook/addon-a11y": "^10.6.3",
-    "@storybook/addon-docs": "^10.6.3",
-    "@storybook/addon-onboarding": "^10.6.3",
-    "eslint-plugin-storybook": "^10.6.3",
     "@vitest/browser-playwright": "4.1.12",
     "@vitest/coverage-v8": "4.1.12",
     "playwright": "latest"

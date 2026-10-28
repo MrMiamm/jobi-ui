@@ -1,0 +1,12 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "compilerOptions": {
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "jobi-ui": ["../../packages/jobi-ui/src/index.ts"],
+      "jobi-ui/manifest": ["../../packages/jobi-ui/src/manifest.ts"]
+    },
+    "tsBuildInfoFile": "../../node_modules/.tmp/playground-vue.tsbuildinfo"
+  }
+}
