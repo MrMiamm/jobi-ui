@@ -35,6 +35,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   width: 'fit',
   iconPosition: 'left',
   type: 'button',
+  noise: false,
 })
 
 /*************************************************************************/
@@ -61,6 +62,7 @@ const computedClasses = useButtonClasses({
   iconPosition: props.iconPosition,
   width: props.width,
   disabled: props.disabled ?? false,
+  noise: props.noise,
 })
 
 const { iconComponent, iconProps } = useButtonIcon(() => props.icon)

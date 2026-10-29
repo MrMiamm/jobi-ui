@@ -4,4 +4,12 @@ export default defineNuxtConfig({
   modules: ['nuxt-jobi-ui', '@nuxt/icon/module'],
   devtools: { enabled: true },
   compatibilityDate: 'latest',
+
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@vue/devtools-core',
+      ]
+    }
+  },
 })

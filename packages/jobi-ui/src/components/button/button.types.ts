@@ -47,6 +47,12 @@ export interface ButtonProps {
   width?: ButtonWidth
 
   /**
+   * Active un fond texturé "noise" qui reprend la couleur du bouton.
+   * @default false
+   */
+  noise?: boolean
+
+  /**
    * Cible de navigation. Si `NuxtLink` est disponible, il est utilisé.
    * Sinon un lien `<a>` est utilisé. Si non défini, un `<button>` est rendu.
    */

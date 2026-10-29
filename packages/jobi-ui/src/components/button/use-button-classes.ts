@@ -13,6 +13,7 @@ import type { ButtonIconPosition, ButtonSize, ButtonVariant, ButtonWidth } from 
  * @param params.iconPosition - Position de l'icône par rapport au texte
  * @param params.width - Largeur du bouton
  * @param params.disabled - Indique si le bouton est désactivé
+ * @param params.noise - Indique si le fond texturé "noise" est activé
  * @returns Liste de classes CSS à appliquer
  */
 export function useButtonClasses(params: {
@@ -23,6 +24,7 @@ export function useButtonClasses(params: {
   iconPosition: ButtonIconPosition
   width: ButtonWidth
   disabled: boolean
+  noise: boolean
 }) {
   return computed(() => {
     const layoutClasses: string[] = []
@@ -99,11 +101,7 @@ export function useButtonClasses(params: {
       )
     }
     if (params.variant === 'ghost') {
-      variantClasses.push(
-        'border-transparent',
-        'hover:border-dark/5',
-        'hover:dark:border-light/5',
-      )
+      variantClasses.push('border-transparent', 'hover:border-dark/5', 'hover:dark:border-light/5')
     }
 
     const sizeTextClasses: string[] = []
@@ -116,6 +114,17 @@ export function useButtonClasses(params: {
       stateClasses.push('opacity-50', 'pointer-events-none')
     }
 
-    return [...layoutClasses, ...variantClasses, ...sizeTextClasses, ...stateClasses]
+    const effectClasses: string[] = []
+    if (params.noise) {
+      effectClasses.push('jobi-button--noise')
+    }
+
+    return [
+      ...layoutClasses,
+      ...variantClasses,
+      ...sizeTextClasses,
+      ...effectClasses,
+      ...stateClasses,
+    ]
   })
 }
