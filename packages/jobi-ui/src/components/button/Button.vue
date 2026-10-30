@@ -6,11 +6,38 @@
     :tabindex="isLink && disabled ? -1 : undefined"
     class="
       flex gap-1 items-center cursor-pointer border-2
-      active:shadow-2xl active:translate-y-0.5 
-      hover:shadow-sm font-light rounded-md 
+      active:shadow-2xl active:translate-y-0.5
+      hover:shadow-sm font-light rounded-md
       transition-all duration-300 ease-linear
     "
-    :class="computedClasses"
+    :class="{
+      'w-fit': width === 'fit' && text,
+      'w-full': width === 'full' && text,
+
+      'justify-center': !text && icon,
+      'w-7 h-7 p-0': !text && icon && size === 'sm',
+      'w-11 h-11 p-1': !text && icon && size === 'md',
+      'w-15 h-15 p-2': !text && icon && size === 'xl',
+
+      'py-0 px-1.5': text && size === 'sm',
+      'py-1 px-4': text && size === 'md',
+      'py-2 px-6': text && size === 'xl',
+
+      'flex-row': iconPosition === 'left',
+      'flex-row-reverse': iconPosition === 'right',
+
+      'jobi-button--primary': variant === 'primary',
+      'jobi-button--secondary': variant === 'secondary',
+      'jobi-button--contrast': variant === 'contrast',
+      'jobi-button--ghost': variant === 'ghost',
+
+      'text-sm': size === 'sm',
+      'text-base': size === 'md',
+      'text-xl': size === 'xl',
+
+      'jobi-button--disabled': disabled,
+      'jobi--noise': noise,
+    }"
     @click="handleClick"
   >
     <component :is="iconComponent()" v-if="icon && iconComponent()" v-bind="iconProps()" />
@@ -21,7 +48,6 @@
 </template>
 
 <script setup lang="ts">
-import { useButtonClasses } from './use-button-classes'
 import { useButtonIcon } from './use-button-icon'
 import { useButtonLink } from './use-button-link'
 import type { ButtonProps } from './button.types'
@@ -54,17 +80,6 @@ const { isLink, componentTag, componentProps } = useButtonLink({
   disabled: () => props.disabled,
 })
 
-const computedClasses = useButtonClasses({
-  text: props.text,
-  icon: props.icon,
-  variant: props.variant,
-  size: props.size,
-  iconPosition: props.iconPosition,
-  width: props.width,
-  disabled: props.disabled ?? false,
-  noise: props.noise,
-})
-
 const { iconComponent, iconProps } = useButtonIcon(() => props.icon)
 
 /*************************************************************************/
@@ -86,3 +101,39 @@ function handleClick(event: MouseEvent) {
   emit('click', event)
 }
 </script>
+
+<style>
+@reference "../../assets/styles/theme.css";
+
+/*Disabled*/
+.jobi-button--disabled {
+  @apply opacity-50 pointer-events-none
+}
+
+/*Primary*/
+.jobi-button--primary {
+  @apply bg-primary-500 border-primary-400/50 text-light dark:text-dark dark:bg-primary-400 hover:bg-primary-600 hover:dark:bg-primary-300
+}
+
+/*Secondary*/
+.jobi-button--secondary {
+  @apply bg-secondary-500 border-secondary-400/50 text-light dark:text-dark dark:bg-secondary-400 hover:bg-secondary-700 hover:dark:bg-secondary-200
+}
+
+/*Contrast*/
+.jobi-button--contrast {
+  @apply bg-light text-dark/85 border-dark/65 dark:bg-dark dark:text-light/85 dark:border-light/65 hover:bg-dark/10 hover:dark:bg-light/10
+}
+
+.jobi-button--contrast.jobi--noise {
+  @apply hover:dark:bg-dark/80!
+}
+
+/*Ghost*/
+.jobi-button--ghost {
+  @apply border-transparent hover:border-dark/5 hover:dark:border-light/5 hover:dark:shadow-primary/10 hover:dark:shadow-md hover:dark:active:shadow-primary/50 hover:dark:active:shadow-2xl
+}
+.jobi-button--ghost.jobi--noise {
+  background-image: none;
+}
+</style>

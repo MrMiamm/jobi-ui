@@ -1,5 +1,5 @@
 <template>
-  
+
 </template>
 
 <script lang="ts" setup>
@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<ComponentProps>(), {
 // Emits
 
 const emit = defineEmits<{
-  
+
 }>()
 
 /*************************************************************************/
@@ -29,3 +29,8 @@ const emit = defineEmits<{
 
 
 </script>
+
+<style>
+@reference "../../assets/styles/theme.css";
+
+</style>
