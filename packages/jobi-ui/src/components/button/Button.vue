@@ -28,6 +28,10 @@
 
       'jobi-button--primary': variant === 'primary',
       'jobi-button--secondary': variant === 'secondary',
+      'jobi-button--info': variant === 'info',
+      'jobi-button--danger': variant === 'danger',
+      'jobi-button--warning': variant === 'warning',
+      'jobi-button--success': variant === 'success',
       'jobi-button--contrast': variant === 'contrast',
       'jobi-button--ghost': variant === 'ghost',
 
@@ -107,31 +111,51 @@ function handleClick(event: MouseEvent) {
 
 /*Disabled*/
 .jobi-button--disabled {
-  @apply opacity-50 pointer-events-none
+  @apply opacity-50 pointer-events-none;
 }
 
 /*Primary*/
 .jobi-button--primary {
-  @apply bg-primary-500 border-primary-400/50 text-on-primary-500 dark:bg-primary-400 dark:text-on-primary-400 hover:bg-primary-600 hover:dark:bg-primary-300
+  @apply bg-primary-500 border-primary-400 text-on-primary-500 dark:bg-primary-400 dark:text-on-primary-400 hover:bg-primary-600 hover:dark:bg-primary-300;
 }
 
 /*Secondary*/
 .jobi-button--secondary {
-  @apply bg-secondary-500 border-secondary-400/50 text-on-secondary-500 dark:bg-secondary-400 dark:text-on-secondary-400 hover:bg-secondary-700 hover:dark:bg-secondary-200
+  @apply bg-secondary-500 border-secondary-400 text-on-secondary-500 dark:bg-secondary-400 dark:text-on-secondary-400 hover:bg-secondary-700 hover:dark:bg-secondary-200;
+}
+
+/*Info*/
+.jobi-button--info {
+  @apply bg-info-500 border-info-400 text-on-info-500 dark:bg-info-400 dark:text-on-info-400 hover:bg-info-600 hover:text-on-info-600 hover:dark:bg-info-300 hover:dark:text-on-info-300;
+}
+
+/*Danger*/
+.jobi-button--danger {
+  @apply bg-danger-500 border-danger-400 text-on-danger-500 dark:bg-danger-400 dark:text-on-danger-400 hover:bg-danger-600 hover:text-on-danger-600 hover:dark:bg-danger-300 hover:dark:text-on-danger-300;
+}
+
+/*Warning*/
+.jobi-button--warning {
+  @apply bg-warning-500 border-warning-400 text-on-warning-500 dark:bg-warning-400 dark:text-on-warning-400 hover:bg-warning-600 hover:text-on-warning-600 hover:dark:bg-warning-300 hover:dark:text-on-warning-300;
+}
+
+/*Success*/
+.jobi-button--success {
+  @apply bg-success-500 border-success-400 text-on-success-500 dark:bg-success-400 dark:text-on-success-400 hover:bg-success-600 hover:text-on-success-600 hover:dark:bg-success-300 hover:dark:text-on-success-300;
 }
 
 /*Contrast*/
 .jobi-button--contrast {
-  @apply bg-light text-dark/85 border-dark/65 dark:bg-dark dark:text-light/85 dark:border-light/65 hover:bg-dark/10 hover:dark:bg-light/10
+  @apply bg-light text-dark/85 border-dark/65 dark:bg-dark dark:text-light/85 dark:border-light/65 hover:bg-dark/10 hover:dark:bg-light/10;
 }
 
 .jobi-button--contrast.jobi--noise {
-  @apply hover:dark:bg-dark/80!
+  @apply hover:dark:bg-dark/80!;
 }
 
 /*Ghost*/
 .jobi-button--ghost {
-  @apply border-transparent hover:border-dark/5 hover:dark:border-light/5 hover:dark:shadow-primary/10 hover:dark:shadow-md hover:dark:active:shadow-primary/50 hover:dark:active:shadow-2xl
+  @apply border-transparent hover:border-dark/5 hover:dark:border-light/5 hover:dark:shadow-primary/10 hover:dark:shadow-md hover:dark:active:shadow-primary hover:dark:active:shadow-2xl;
 }
 .jobi-button--ghost.jobi--noise {
   background-image: none;

@@ -48,6 +48,13 @@
       </div>
     </div>
 
+    <h2 class="text-xl font-bold text-primary-700 dark:text-primary-200">Delete button</h2>
+
+    <div class="flex w-full max-w-6xl flex-wrap items-center gap-4">
+      <JobiButton variant="danger" icon="material-symbols:delete-outline" text="Supprimer" />
+      <JobiButton variant="danger" icon="material-symbols:delete-outline" aria-label="Supprimer" />
+    </div>
+
     <h2 class="text-xl font-bold text-primary-700 dark:text-primary-200">Cards</h2>
 
     <div class="grid w-full max-w-6xl gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -76,13 +83,23 @@ interface Label {
   label: string
 }
 
-const variants = ['primary', 'secondary', 'contrast', 'ghost'] as const
+const buttonVariants = [
+  'primary',
+  'secondary',
+  'info',
+  'danger',
+  'warning',
+  'success',
+  'contrast',
+  'ghost',
+] as const
+const cardVariants = ['primary', 'secondary', 'contrast', 'ghost'] as const
 const sizes = ['sm', 'md', 'xl'] as const
 
 type ButtonCase = ButtonProps & Label
 
 const buttonCases: ButtonCase[] = sizes.flatMap((size) =>
-  variants.flatMap(
+  buttonVariants.flatMap(
     (variant) =>
       [
         { label: `${size} · ${variant} · classic`, variant, size },
@@ -119,7 +136,7 @@ const buttonCases: ButtonCase[] = sizes.flatMap((size) =>
 type CardCase = CardProps & Label
 
 const cardCases: CardCase[] = [
-  ...variants.flatMap(
+  ...cardVariants.flatMap(
     (variant) =>
       [
         { label: `${variant} · sans noise`, variant },

@@ -2,7 +2,7 @@
 
 /**************************************************************************************/
 
-export type ButtonVariant = 'primary' | 'secondary' | 'contrast' | 'ghost'
+export type ButtonVariant = 'primary' | 'secondary' | 'info' | 'danger' | 'warning' | 'success' | 'contrast' | 'ghost'
 export type ButtonSize = 'sm' | 'md' | 'xl'
 export type ButtonIconPosition = 'left' | 'right'
 export type ButtonWidth = 'fit' | 'full'
