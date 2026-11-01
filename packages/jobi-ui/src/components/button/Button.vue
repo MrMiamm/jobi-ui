@@ -112,12 +112,12 @@ function handleClick(event: MouseEvent) {
 
 /*Primary*/
 .jobi-button--primary {
-  @apply bg-primary-500 border-primary-400/50 text-light dark:text-dark dark:bg-primary-400 hover:bg-primary-600 hover:dark:bg-primary-300
+  @apply bg-primary-500 border-primary-400/50 text-on-primary-500 dark:bg-primary-400 dark:text-on-primary-400 hover:bg-primary-600 hover:dark:bg-primary-300
 }
 
 /*Secondary*/
 .jobi-button--secondary {
-  @apply bg-secondary-500 border-secondary-400/50 text-light dark:text-dark dark:bg-secondary-400 hover:bg-secondary-700 hover:dark:bg-secondary-200
+  @apply bg-secondary-500 border-secondary-400/50 text-on-secondary-500 dark:bg-secondary-400 dark:text-on-secondary-400 hover:bg-secondary-700 hover:dark:bg-secondary-200
 }
 
 /*Contrast*/
