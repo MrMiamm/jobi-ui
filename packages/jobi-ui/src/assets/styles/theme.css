@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --jobi-color-primary: #38064b;
+  --jobi-color-primary: #18609c;
   --jobi-color-secondary: #037d7d;
 
   --jobi-color-primary-50: color-mix(in oklch, var(--jobi-color-primary) 5%, white);
