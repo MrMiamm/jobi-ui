@@ -31,7 +31,7 @@
   --jobi-color-secondary-950: color-mix(in oklch, var(--jobi-color-secondary) 25%, black);
 
   --jobi-color-light: color-mix(in oklch, var(--jobi-color-primary) 3%, white);
-  --jobi-color-dark: color-mix(in oklch, var(--jobi-color-primary) 33%, black);
+  --jobi-color-dark: color-mix(in oklch, var(--jobi-color-primary) 10%, black);
 
   --jobi-color-on-primary: color-mix(in oklch, var(--jobi-color-primary) 5%, contrast-color(var(--jobi-color-primary)));
   --jobi-color-on-secondary: color-mix(in oklch, var(--jobi-color-secondary) 5%, contrast-color(var(--jobi-color-secondary)));
